@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- service, dao scan : context:componentScan -->
+	
+	
+	<context:annotation-config/>
+	
+	<!-- @service, @Repository, @Controller, @Component -->
+	<context:component-scan base-package="kr.or.ddit" use-default-filters="false"><!-- use-default-filters="false"로 줘서 원하는 정보만 얻어온다. -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/> <!-- @써있는 service type에서가져옴 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/><!-- @써있는 Repository type에서가져옴 -->
+	</context:component-scan>
+	
+</beans>
